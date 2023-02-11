@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block body_content %}
+
+<section id="one" class="wrapper">
+    <div class="inner">
+        <!-- Form -->
+        <h3>Giriş Yap</h3>
+
+        <form method="post" action="{{ url_for('user_ops.login') }}">
+            <div class="row uniform">
+                <div class="6u 12u$(xsmall)">
+                    <input type="text" name="username" id="username" value="" placeholder="Kullanıcı Adı"/>
+                </div>
+                <div class="6u$ 12u$(xsmall)">
+                    <input type="password" name="password" id="password" value="" placeholder="Şifre"/>
+                </div>
+                <!-- Break -->
+                <div class="12u$">
+                    <ul class="actions">
+                        <li><input type="submit" value="Giriş Yap"/></li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+        <form action="{{ url_for('home.index') }}" >
+            <input type="submit" value="Anasayfaya Dön" class="alt"/>
+        </form>
+    </div>
+</section>
+{% endblock %}

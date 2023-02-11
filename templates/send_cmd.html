@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block body_content %}
+
+<section id="one" class="wrapper">
+    <div class="inner">
+        <!-- Form -->
+        <h3>Komut Yolla</h3>
+
+        <form method="post" action="{{ url_for('data_ops.send_cmd') }}">
+            <div class="row uniform">
+                <div class="6u 12u$(xsmall)">
+                    <input type="text" name="name" id="name" value="" placeholder="İsim"/>
+                </div>
+                <div class="6u$ 12u$(xsmall)">
+                    <input type="text" name="email" id="email" value="" placeholder="Email"/>
+                </div>
+                <!-- Break -->
+                <div class="12u$">
+                    <div class="select-wrapper">
+                        <select name="category" id="category">
+                            <option value="">- Robot Modülü Seçiniz -</option>
+                            <option value="1">Deney modülü</option>
+                            <option value="2">Kontrol Modülü</option>
+                            <option value="3">Robot Kol Modülü</option>
+                            <option value="4">Görüntü Modülü</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Break -->
+                <div class="4u 12u$(small)">
+                    <input type="radio" id="priority-low" name="priority" value="0" checked>
+                    <label for="priority-low">Test 1</label>
+                </div>
+                <div class="4u 12u$(small)">
+                    <input type="radio" id="priority-normal" name="priority" value="1">
+                    <label for="priority-normal">Test 2</label>
+                </div>
+                <div class="4u$ 12u$(small)">
+                    <input type="radio" id="priority-high" name="priority" value="2">
+                    <label for="priority-high">Test 3</label>
+                </div>
+                <!-- Break -->
+                <div class="12u$">
+                    <textarea name="message" id="message" placeholder="Enter your message" rows="6"></textarea>
+                </div>
+                <!-- Break -->
+                <div class="12u$">
+                    <ul class="actions">
+                        <li><input type="submit" value="Gönder"/></li>
+                        <li><input type="reset" value="Metni Sil" class="alt"/></li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}

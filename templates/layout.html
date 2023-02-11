@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>UARTEK</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="static/assets/css/main.css" />
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		<style>
+		  body {
+			 background-color: rgb(50, 50, 50);
+		  }
+	   </style>
+	</head>
+    <body>
+
+		<!-- Header -->
+			<header id="header">
+				<nav class="left">
+					<a href="#menu"><span>Menü</span></a>
+				</nav>
+				<a href="{{ url_for('home.index') }}" class="logo">uartek</a>
+				{% if login_auth == False %}
+				<nav class="right">
+					<a href="{{ url_for('user_ops.login') }}" class="button alt">Giriş</a>
+				</nav>
+				{% else %}
+				<nav class="right">
+					<a href="{{ url_for('user_ops.logout') }}" class="button alt">{{ username }} - Çıkış</a>
+				</nav>
+				{% endif %}
+			</header>
+    <!-- Menu -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="{{ url_for('home.index') }}">Anasayfa</a></li>
+					<li><a href="{{ url_for('data_ops.raw_data') }}">Ham Veriler</a></li>
+					<li><a href="{{ url_for('data_ops.charts') }}">Grafikler</a></li>
+					<li><a href="{{ url_for('cam_ops.cams') }}">Kameralar</a></li>
+					<li><a href="{{ url_for('data_ops.send_cmd') }}">Komut Yolla</a></li>
+				</ul>
+
+				{% if login_auth == False %}
+				<ul class="actions vertical">
+					<li><a href="{{ url_for('user_ops.login') }}" class="button fit">Giriş</a></li>
+				</ul>
+				{% else %}
+				<ul class="actions vertical">
+					<li><a href="{{ url_for('user_ops.logout') }}" class="button fit">{{ username }} - Çıkış</a></li>
+				</ul>
+				{% endif %}
+			</nav>
+
+        {% block body_content %}
+        {% endblock %}
+
+    <!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<h2>Get In Touch</h2>
+					<ul class="actions">
+						<li><span class="icon fa-phone"></span> <a href="#">(000) 000-0000</a></li>
+						<li><span class="icon fa-envelope"></span> <a href="#">information@untitled.tld</a></li>
+						<li><span class="icon fa-map-marker"></span> Türkiye - Manisa</li>
+					</ul>
+				</div>
+				<div class="copyright">
+					&copy; Untitled. Design <a href="https://www.linkedin.com/in/taha-eren-karak%C4%B1%C5%9F-887a77210/">By T. Eren KARAKIŞ</a>. Images <a href="https://unsplash.com">Unsplash</a>.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="static/assets/js/jquery.min.js"></script>
+			<script src="static/assets/js/jquery.scrolly.min.js"></script>
+			<script src="static/assets/js/skel.min.js"></script>
+			<script src="static/assets/js/util.js"></script>
+			<script src="static/assets/js/main.js"></script>
+
+	</body>
+</html>

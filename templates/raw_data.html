@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+
+{% block body_content %}
+
+<section id="one" class="wrapper">
+    <div class="inner">
+        <h4>Ham Veri Görüntüleme</h4>
+        <div class="table-wrapper">
+            <table class="alt">
+                <thead>
+                <tr>
+                    <th>Modül</th>
+                    <th>Veri İsmi</th>
+                    <th>Veri</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for module, data_name, data in raw_data %}
+                <tr>
+                    <td>{{ module }}</td>
+                    <td>{{ data_name }}</td>
+                    <td>{{ data }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

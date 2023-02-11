@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block body_content %}
+
+<section id="one" class="wrapper">
+    <div class="inner">
+        <div class="row">
+            <!-- Cam 1 -->
+            <div class="column">
+                <img src="{{ url_for('cam_ops.video_stream1') }}">
+                <div class="content">
+                    <h3>Ön Kamera</h3>
+                </div>
+            </div>
+
+            <!-- Cam 2 -->
+            <div class="column">
+                <img src="{{ url_for('cam_ops.video_stream2') }}">
+                <div class="content">
+                    <h3>Ön Kamera</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

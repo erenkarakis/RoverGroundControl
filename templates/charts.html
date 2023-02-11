@@ -1,0 +1,145 @@
+{% extends 'layout.html' %}
+
+{% block body_content %}
+
+<section id="one" class="wrapper">
+    <div class="inner">
+        <div class="row">
+            <div class="column">
+                <canvas id="line_chart" width="800" height="400"></canvas>
+                <script>
+                    var ctx = document.getElementById("line_chart").getContext("2d");
+                    var line_chart = new Chart(ctx, {
+                        type: "line",
+                        data: {
+                            labels: {{ labels3 | safe }},
+                            datasets: [{
+                                label: "Temp Data",
+                                data: {{ values3 | safe }},
+                                fil: false,
+                                borderColor: "rgb(255, 0, 0)",
+                                lineTension: 0.3
+                            }]
+                        },
+                        options: {
+                            responsive: false,
+                            scales: {
+                                y: {
+                                    ticks: { color: "#adacac" },
+                                    grid: { color: "#1c1616" }
+                                },
+                                x: {
+                                    ticks: { color: "#adacac" },
+                                    grid: { color: "#1c1616" }
+                                }
+                            }
+                        }
+                    });
+                </script>
+            </div>
+
+            <div class="column">
+                <canvas id="line_chart2" width="800" height="400"></canvas>
+                <script>
+                    var ctx = document.getElementById("line_chart2").getContext("2d");
+                    var line_chart = new Chart(ctx, {
+                        type: "line",
+                        data: {
+                            labels: {{ labels2 | safe }},
+                            datasets: [{
+                                label: "Battery Data",
+                                data: {{ values2 | safe }},
+                                fil: false,
+                                borderColor: "rgb(44, 26, 201)",
+                                lineTension: 0.3
+                            }]
+                        },
+                        options: {
+                            responsive: false,
+                            scales: {
+                                y: {
+                                    ticks: { color: "#adacac" },
+                                    grid: { color: "#1c1616" }
+                                },
+                                x: {
+                                    ticks: { color: "#adacac" },
+                                    grid: { color: "#1c1616" }
+                                }
+                            }
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <canvas id="line_chart3" width="800" height="400"></canvas>
+                <script>
+                    var ctx = document.getElementById("line_chart3").getContext("2d");
+                    var line_chart = new Chart(ctx, {
+                        type: "line",
+                        data: {
+                            labels: {{ labels2 | safe }},
+                            datasets: [{
+                                label: "Battery Data",
+                                data: {{ values2 | safe }},
+                                fil: false,
+                                borderColor: "rgb(64, 0, 255)",
+                                lineTension: 0.3
+                            }]
+                        },
+                        options: {
+                            responsive: false,
+                            scales: {
+                                y: {
+                                    ticks: { color: "#adacac" },
+                                    grid: { color: "#1c1616" }
+                                },
+                                x: {
+                                    ticks: { color: "#adacac" },
+                                    grid: { color: "#1c1616" }
+                                }
+                            }
+                        }
+                    });
+                </script>
+            </div>
+
+            <div class="column">
+                <canvas id="line_chart4" width="800" height="400"></canvas>
+                <script>
+                    var ctx = document.getElementById("line_chart4").getContext("2d");
+                    var line_chart = new Chart(ctx, {
+                        type: "line",
+                        data: {
+                            labels: {{ labels1 | safe }},
+                            datasets: [{
+                                label: "Battery Data",
+                                data: {{ values1 | safe }},
+                                fil: false,
+                                borderColor: "rgb(255, 55, 222)",
+                                lineTension: 0.3
+                            }]
+                        },
+                        options: {
+                            responsive: false,
+                            scales: {
+                                y: {
+                                    ticks: { color: "#adacac" },
+                                    grid: { color: "#1c1616" }
+                                },
+                                x: {
+                                    ticks: { color: "#adacac" },
+                                    grid: { color: "#1c1616" }
+                                }
+                            }
+                        }
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
