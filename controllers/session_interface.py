@@ -1,7 +1,7 @@
 from flask.sessions import SessionMixin, SessionInterface
 import uuid
 import json
-from itsdangerous  import Signer, BadSignature, want_bytes
+from itsdangerous import Signer, BadSignature, want_bytes
 
 class MySession(dict, SessionMixin):
     def __init__(self, initial=None, sessionId=None):
@@ -29,7 +29,7 @@ class MySessionInterface(SessionInterface):
         pass
 
     def open_session(self, app, request):
-        sessionId = request.cookies.get(app.session_cookie_name)
+        sessionId = request.cookies.get(app.SESSION_COOKIE_NAME)
         if not sessionId:
             sessionId = str(uuid.uuid4())
             return self.session_class(sessionId=sessionId)
@@ -59,4 +59,4 @@ class MySessionInterface(SessionInterface):
         signer = Signer(app.secret_key, salt=self.salt, key_derivation="hmac")
         signedSessionId = signer.sign(want_bytes(session.sessionId))
 
-        response.set_cookie(app.session_cookie_name, signedSessionId)
+        response.set_cookie(app.SESSION_COOKIE_NAME, signedSessionId)
